@@ -37,38 +37,50 @@
         
         <table border="1">
             <tr>
-                <td>Rank</td>
-                <td>Article</td>
-            </tr>
-            <tr>
                 <td>1</td>
-                <td><a href="/SERLER/JspTwo.jsp">Article Two</a></td>
+                <td><a href="/SERLER/JspOne.jsp">Empirical investigation of refactoring effect on software quality</a></td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Empirical investigation of refactoring effect on software quality</td>
+                <td><a href="/SERLER/JspTwo.jsp">The Making of Cloud Applications An Empirical Study on Software Development for the Cloud</a></td>
             </tr>
             <tr>
-                <td>1</td>
                 <td>3</td>
+                <td><a href="/SERLER/JspThree.jsp">A Simulation Model for the Waterfall Software Development Life Cycle</a></td>
             </tr>
             <tr>
-                <td>1</td>
                 <td>4</td>
-            </tr>
+                <td><a href="/SERLER/JspFour.jsp">Empirical studies of agile software development: A systematic review</a></td>
+            </tr> 
             <tr>
-                <td>1</td>
                 <td>5</td>
+                <td><a href="/SERLER/JspFive.jsp">An iterative adaptive dynamic programming method for solving a class of nonlinear zero-sum differential games</a></td>
+            </tr> 
+            <tr>
+                <td>6</td>
+                <td>  - </td>
+            </tr> 
+            <tr>
+                <td>7</td>
+                <td>  - </td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>6</td>
+                <td>8</td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>  - </td>
             </tr>
         </table>
         
         <h3>Not sure what you're after? Try using the drop down menu!</h3>
         
-        <form ACTION="http://localhost:8080/SERLER/ServletOne">
+        <form ACTION="http://localhost:8080/SERLER/ServletOne" method = "POST">
         
         <p>
             Year Published:
@@ -102,7 +114,8 @@
             
         </p>
         
-        <Input Type="SUBMIT" name="submit" value="Submit">
+        <Input Type="SUBMIT" value="Submit" onClick="form.action='ServletOne';">
+        <Input Type="SUBMIT" value="Save Query" onClick="form.action='SaveServlet';">
         
        </form> 
 </html>

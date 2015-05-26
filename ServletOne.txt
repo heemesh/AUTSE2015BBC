@@ -39,13 +39,15 @@ public class ServletOne extends HttpServlet
     private String dbUrl;
     private String dbTable;
     private String dbArticleName;
-    private String dbLink;
+    private String dbAuthor;
+    private String dbJournal;
     private String dbYearPublished;
     private String dbCategory;
     private String userName;
     private String passWord;
-    private String year;
-    private String category;
+    public static String year;
+    public static String category;
+    private final String SELECT = "select";
     
      public ServletOne() throws SQLException, ClassNotFoundException, IOException
     {
@@ -55,7 +57,8 @@ public class ServletOne extends HttpServlet
         dbUrl = properties.get("dbUrl").toString();
         dbTable = properties.get("dbTable").toString();
         dbArticleName = properties.get("dbArticleName").toString();
-        dbLink = properties.get("dbLink").toString();
+        dbAuthor = properties.get("dbAuthor").toString();
+        dbJournal = properties.get("dbJournal").toString();
         dbYearPublished = properties.get("dbYearPublished").toString();
         dbCategory = properties.get("dbCategory").toString();
         userName = properties.get("user").toString();
@@ -107,7 +110,7 @@ public class ServletOne extends HttpServlet
     {
         year = request.getParameter("year");
         category = request.getParameter("category");
-        if(year == null || category == null || year.length() == 0 || category.length() == 0)
+        if(year == null || category ==  null)
         {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Search.jsp");
             dispatcher.forward(request, response);
@@ -119,8 +122,10 @@ public class ServletOne extends HttpServlet
             
             List articleYearList = new ArrayList();
             List articleCategoryList = new ArrayList();
-            List articleNameList = new ArrayList(); // How to get name and link to print out?
-            List articleLinkList = new ArrayList();
+            List articleNameList = new ArrayList();
+            List articleAuthorList = new ArrayList();
+            List articleJournalList = new ArrayList();
+            
             
             conn = null;
             ResultSet rsArticles;
@@ -132,8 +137,9 @@ public class ServletOne extends HttpServlet
                 Class.forName(dbDriver);
                 conn = (Connection) DriverManager.getConnection(dbUrl, userName, passWord);
                 
-                //String sqlArticles = "select * from " +dbTable+ " WHERE " +dbYearPublished+ " = " +year+ " AND " +dbCategory+ " = " +category;
-                String sqlArticles = "SELECT " +dbArticleName+ ", " +dbLink+ " FROM " +dbTable+ " WHERE " +dbYearPublished+ "=" +year+ " AND " +dbCategory+ "=" +category;  
+                //String sqlArticles = "select * from " +dbTable+ " WHERE " +dbYearPublished+ " = '" +year+ "' AND " +dbCategory+ " = " +category;
+                //String sqlArticles = "SELECT " +dbArticleName+ ", " +dbAuthor+  " FROM " +dbTable+ " WHERE " +dbYearPublished+ " = " + "'"+year+"'" + " AND " +dbCategory+ " = " + "'"+category+"'";  
+                String sqlArticles = "SELECT " +dbJournal+ ", " +dbArticleName+ ", " +dbAuthor+  " FROM " +dbTable+ " WHERE " +dbYearPublished+ " = " + "'"+year+"'" + " AND " +dbCategory+ " = " + "'"+category+"'";
                 Statement stArticles = (Statement) conn.createStatement();
                 
                 stArticles.executeQuery(sqlArticles);
@@ -142,17 +148,19 @@ public class ServletOne extends HttpServlet
                 
                 while(rsArticles.next())
                 {
-                    Logger.getLogger("ServletOne").log(Level.INFO, "ResultSet ="+rsArticles.getString(dbArticleName) + rsArticles.getString(dbLink));
+                    Logger.getLogger("ServletOne").log(Level.INFO, "ResultSet ="+rsArticles.getString(dbJournal) + rsArticles.getString(dbArticleName) + rsArticles.getString(dbAuthor));
                     //Logger.getLogger("ServletOne").log(Level.INFO, "ResultSet ="+rsArticles.getString(dbYearPublished) + rsArticles.getString(dbCategory));
                     
+                    articleJournalList.add(rsArticles.getString(dbJournal));
                     articleNameList.add(rsArticles.getString(dbArticleName));
-                    articleLinkList.add(rsArticles.getString(dbLink));
+                    articleAuthorList.add(rsArticles.getString(dbAuthor));
                     //articleYearList.add(rsArticles.getString(dbYearPublished));
                     //articleCategoryList.add(rsArticles.getString(dbCategory));
                 }
                 
+                articlesBean.setArticleJournalList(articleJournalList);
                 articlesBean.setArticleNameList(articleNameList);
-                articlesBean.setArticleLinkList(articleLinkList);
+                articlesBean.setArticleAuthorList(articleAuthorList);
                 //articlesBean.setArticleYearList(articleYearList);
                 //articlesBean.setArticleCategoryList(articleCategoryList);
                 
@@ -172,6 +180,7 @@ public class ServletOne extends HttpServlet
             if(dispatcher != null)
                 dispatcher.forward(request, response);
         }
+        
         
     }
 

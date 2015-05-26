@@ -22,11 +22,14 @@
                 </td>
             </tr>
             <tr>
+                <td width = "50">
+                    <b>Article Name</b>
+                </td>
                 <td width = "119">
-                    <b>Name</b>
+                    <b>Journal</b>
                 </td>
                 <td width = "50">
-                    <b>Link</b>
+                    <b>Author</b>
                 </td>
             </tr>
             
@@ -34,26 +37,34 @@
                          scope = "session" />
             
             <%  
+                List articleJournalList = articlesBeanAttributes.getArticleJournalList();
                 List articleNameList = articlesBeanAttributes.getArticleNameList();
-                List articleLinkList = articlesBeanAttributes.getArticleLinkList();
+                List articleAuthorList = articlesBeanAttributes.getArticleAuthorList();
                 //List articleYearList = articlesBeanAttributes.getArticleYearList();
                 //List articleCategoryList = articlesBeanAttributes.getArticleCategoryList();
                 
-                for(int i=0; i < articleNameList.size(); i++){
+                for(int i=0; i < articleNameList.size(); i++)
+                {
+                    String journal = (String)articleJournalList.get(i);
                     String name = (String)articleNameList.get(i);
-                    String link = (String)articleLinkList.get(i);
+                    String author = (String)articleAuthorList.get(i);
                     
                     out.println("<tr>");
                         out.println("<td width = 119>");
                             out.println("<t>" + name + "</t>");
                         out.println("</td>");
                         out.println("<td width = 119>");
-                            out.println("<t>$" + link + "</t>");
+                            out.println("<t>" + journal + "</t>");
+                        out.println("</td>");
+                        out.println("<td width = 119>");
+                            out.println("<t>" + author + "</t>");
                         out.println("</td>");
                     out.println("</tr>");
                 }
             %>
         </table>
+    
+        
             <p><a href="/SERLER/Search.jsp">Go back!</a></p>
      </body>
 </html>
