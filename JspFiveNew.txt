@@ -1,0 +1,47 @@
+<%-- 
+    Document   : JspFive
+    Created on : 23/05/2015, 1:12:16 PM
+    Author     : Heemesh
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="MenuStyle.css">
+    </head>
+    <body>
+        <center><h1>An iterative adaptive dynamic programming method for solving a class of nonlinear zero-sum differential games</h1></center>
+        
+        <center><h4>Abstract: </h4></center>
+        <center><h7>In this paper, a new iterative adaptive dynamic programming (ADP) method is proposed to 
+                solve a class of continuous-time nonlinear two-person zero-sum differential games. The idea 
+                is to use the ADP technique to obtain the optimal control pair iteratively which makes the 
+                performance index function reach the saddle point of the zero-sum differential games. If 
+                the saddle point does not exist, the mixed optimal control pair is obtained to make the 
+                performance index function reach the mixed optimum. Stability analysis of the nonlinear 
+                systems is presented and the convergence property of the performance index function is also 
+                proved. Two simulation examples are given to illustrate the performance of the proposed method.
+        </h7></center><br />
+        
+        <center>
+            <forum>
+                <h7><b>Date Published: </b>2011</h7><br /><br />
+                
+                <h7><b>Author: </b>Huaguang Zhang, Qinglai Wei, Derong Liu</h7><br /><br />
+                     
+                <h7><b>Topic: </b>Dynamic</h7><br /><br />
+                
+                <h7><b>Comment: </b></h7><br />
+                ?<textarea id="txtArea" rows="10" cols="70"></textarea><br />
+                
+                <Input Type="SUBMIT" name="submit" value="Submit">
+                
+            </forum>
+        </center>
+        
+        <br /><br />  
+    </body>
+</html>
