@@ -1,0 +1,117 @@
+<%-- 
+    Document   : Addjsp
+    Created on : 26/05/2015, 7:53:14 PM
+    Author     : Heemesh
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Add Articles</title>
+        
+        <link rel="stylesheet" type="text/css" href="MenuStyle.css">
+        
+    </head>
+    <body>
+        <center><h1>Add Articles</h1></center>
+    </body>
+    
+    <%
+      String ArticleName = request.getParameter("ArticleName");
+      String ArticleAuthor = request.getParameter("ArticleAuthor");
+      String Journal = request.getParameter("Journal");
+      String Category = request.getParameter("Category");
+      String YearPublished = request.getParameter("YearPublished");
+      String ResearchLevel = request.getParameter("ResearchLevel");
+      String UsersName = request.getParameter("UsersName");
+      String CommentReason = request.getParameter("CommentReason");
+      String Result = request.getParameter("Result");
+    %>
+    
+        <table>
+            <tr>
+                <td align="right">Add Article</td>
+            </tr>
+            <tr>
+                <td align="right">Article Name:</td>
+                <td>
+                    <input Type="Text" Name="ArticleName" Value="<%= ArticleName %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Article Author:</td>
+                <td>
+                    <input Type="Text" Name="ArticleAuthor" Value="<%= ArticleAuthor %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Journal:</td>
+                <td>
+                    <input Type="Text" Name="Journal" Value="<%= Journal %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Category:</td>
+                <td>
+                    <input Type="Text" Name="Category" Value="<%= Category %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Year Published:</td>
+                <td>
+                    <input Type="Text" Name="YearPublished" Value="<%= YearPublished %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Research Level:</td>
+                <td>
+                    <input Type="Text" Name="ResearchLevel" Value="<%= ResearchLevel %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Credibility Rating 1-5:</td>
+                <td>
+                    <input type="radio" name="first">1</radio>
+                    <input type="radio" name="first">2</radio>
+                    <input type="radio" name="first">3</radio>
+                    <input type="radio" name="first">4</radio>
+                    <input type="radio" name="first">5</radio>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Users Name:</td>
+                <td>
+                    <input Type="Text" Name="UsersName" Value="<%= UsersName %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Comment/Reason:</td>
+                <td>
+                    <input Type="Text" Name="CommentReason" Value="<%= CommentReason %>">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Result:</td>
+                <td>
+                    <input Type="Text" Name="Result" Value="<%= Result %>">
+                </td>
+            </tr>
+        </table>
+    
+    
+    <br />
+    
+    <form action="/SERLER/FinalAddjsp.jsp">
+            <input type="submit" value="Add Article">
+    </form>
+    
+    <br />
+    
+    <form action="/SERLER/Search.jsp">
+            <input type="submit" value="Go Back">
+    </form>
+    
+    
+</html>
