@@ -1,0 +1,146 @@
+<%-- 
+    Document   : Addjsp
+    Created on : 26/05/2015, 7:53:14 PM
+    Author     : Sherwin, Heemesh, Jas
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Add Articles</title>
+        
+        <link rel="stylesheet" type="text/css" href="MenuStyle.css">
+        
+    </head>
+    <body>
+        <center><h1>Add Articles</h1></center>
+        <hr>
+        <%! private final String NULL= "null"; %>
+        
+    <%
+          out.println("<center><p>*Please fill in the following fields*</p></center>");
+    %>  
+    
+    
+    <%
+      String articleName = request.getParameter("ArticleName");
+      String articleAuthor = request.getParameter("ArticleAuthor");
+      String journal = request.getParameter("Journal");
+      String category = request.getParameter("category");
+      String yearPublished = request.getParameter("YearPublished");
+      String researchLevel = request.getParameter("ResearchLevel");
+      String credibilityRating = request.getParameter("first");
+      String usersName = request.getParameter("UsersName");
+      String commentReason = request.getParameter("CommentReason");
+      String result = request.getParameter("Result");
+      
+      if(articleName != null && articleAuthor != null && category != null && yearPublished != null)
+      {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("SERLER/AddServlet");
+                dispatcher.forward(request, response);
+      }          
+    %>
+    
+     <form ACTION="http://localhost:8080/SERLER/AddServlet">
+    
+        <table>
+            <tr>
+                <td align="right">Add Article</td>
+            </tr>
+            <tr>
+                <td align="right">Article Name:</td>
+                <td>
+                    <input Type="Text" Name="ArticleName" Value="" placeholder="Name of the Article" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Article Author:</td>
+                <td>
+                    <input Type="Text" Name="ArticleAuthor" Value="" placeholder="Name(s) of the Author(s)" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Journal:</td>
+                <td>
+                    <input Type="Text" Name="Journal" Value="" placeholder="Name of the Journal" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Category:</td>
+                <td>
+                    <select name= "category">
+                        <option value= "select">Select Category</option>
+                        <option value= "Agile">Agile</option>
+                        <option value= "Waterfall">Waterfall</option>
+                        <option value= "Crystal">Crystal</option>
+                        <option value= "Dynamic">Dynamic</option>
+                        <option value= "Extreme Programming">Extreme Programming (XP)</option>
+                        <option value= "Refactoring">Refactoring</option>
+                        <option value= "Cloud">Cloud</option>
+                    <select/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Year Published:</td>
+                <td>
+                    <select name= "YearPublished">
+                <option value= "<%=NULL%>">Select Year</option>
+                <option value= "2015">2015</option>
+                <option value= "2014">2014</option>
+                <option value= "2013">2013</option>
+                <option value= "2012">2012</option>
+                <option value= "2011">2011</option>
+                <option value= "2010">2010</option>
+                <option value= "2009">2009</option>
+                <option value= "2008">2008</option>
+                <option value= "2007">2007</option>
+                <select/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Research Level:</td>
+                <td>
+                    <textarea name ="ResearchLevel" cols="30" rows ="2" placeholder="Type of Research conducted"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Credibility Rating 1(Lowest)-5(Highest):</td>
+                <td>
+                    <input type="radio" name="first" value = "1">1</radio>
+                    <input type="radio" name="first" value = "2">2</radio>
+                    <input type="radio" name="first" value = "3">3</radio>
+                    <input type="radio" name="first" value = "4">4</radio>
+                    <input type="radio" name="first" value = "5">5</radio>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">User Name:</td>
+                <td>
+                    <input Type="Text" Name="UsersName" Value="" placeholder="Your Username" size="30">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Comment/Reason:</td>
+                <td>
+                    <textarea name ="CommentReason" cols="30" rows ="5" placeholder="Give us your thoughts"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Result:</td>
+                <td>
+                    <textarea name ="Result" cols="30" rows ="5" placeholder="The Result of the research"></textarea>
+                </td>
+            </tr>
+        </table>
+    
+    
+    <br />
+    <input type ="SUBMIT" value="Add" onClick="form.action='AddServlet';">
+    <Input type="SUBMIT" value="Go Back" onClick="form.action='Search.jsp';">
+    
+    </form>
+    
+   </body> 
+</html>

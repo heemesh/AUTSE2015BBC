@@ -1,0 +1,106 @@
+<%-- 
+    Document   : Search
+    Created on : 11/05/2015, 1:08:13 PM
+    Author     : Sherwin, Heemesh, Jas
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Search</title>
+        <link rel="stylesheet" type="text/css" href="MenuStyle.css">
+    </head>
+    <body>
+    <center><h3>Welcome to SERLER!</h3></center>
+    <center><h2>Here you can search various articles about methodologies used in Software Development</h2></center>
+    <center><h3>Have a go!</h3></center>
+        <%@ page import = "javax.servlet.RequestDispatcher" %>
+        <%! private final String SELECT= "select"; %>
+        <%! private final String NULL= "null"; %>
+        <%
+            //String searchArticle = request.getParameter("searcharticle");
+            String yearSelected = request.getParameter("year");
+            String categorySelected = request.getParameter("category");
+            //if(searchArticle == null)
+                //searchArticle = "";
+            if(yearSelected != null && categorySelected != null)
+            {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("SERLER/ServletOne");
+                dispatcher.forward(request, response);
+            }
+        %>
+        <hr>
+        
+        
+            <table border="1" style="width: 1000;">
+            <tr>
+                <td></td>
+                <td>Popular Articles List</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><a href="/SERLER/JspOne.jsp">Empirical investigation of refactoring effect on software quality</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="/SERLER/JspTwo.jsp">The Making of Cloud Applications An Empirical Study on Software Development for the Cloud</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="/SERLER/JspThree.jsp">A Simulation Model for the Waterfall Software Development Life Cycle</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><a href="/SERLER/JspFour.jsp">Empirical studies of agile software development: A systematic review</a></td>
+            </tr> 
+            <tr>
+                <td>5</td>
+                <td><a href="/SERLER/JspFive.jsp">An iterative adaptive dynamic programming method for solving a class of nonlinear zero-sum differential games</a></td>
+            </tr> 
+        </table>
+        
+
+        
+        <h2>Not sure what you're after? Try using the drop down menu!</h2>
+        
+        <form ACTION="http://localhost:8080/SERLER/ServletOne" method = "POST">
+        
+        <p>
+            Year Published:
+            <select name= "year">
+                <option value= "<%=NULL%>">Select Year</option>
+                <option value= "2015">2015</option>
+                <option value= "2014">2014</option>
+                <option value= "2013">2013</option>
+                <option value= "2012">2012</option>
+                <option value= "2011">2011</option>
+                <option value= "2010">2010</option>
+                <option value= "2009">2009</option>
+                <option value= "2008">2008</option>
+                <option value= "2007">2007</option>
+                <select/>
+            
+        </p>
+        
+        <p>
+            Category:
+            <select name= "category">
+                <option value= "<%=NULL%>">Select Category</option>
+                <option value= "Agile">Agile</option>
+                <option value= "Waterfall">Waterfall</option>
+                <option value= "Crystal">Crystal</option>
+                <option value= "Dynamic">Dynamic</option>
+                <option value= "Extreme Programming">Extreme Programming (XP)</option>
+                <option value= "Refactoring">Refactoring</option>
+                <option value= "Cloud">Cloud</option>
+                <select/>
+            
+        </p>
+        
+        <Input Type="SUBMIT" value="Submit" onClick="form.action='ServletOne';">
+        <Input Type="SUBMIT" value="Save Query" onClick="form.action='SaveServlet';">
+        <Input Type="SUBMIT" value="Add Article" onClick="form.action='Addjsp.jsp';">
+        
+</html>

@@ -1,0 +1,49 @@
+<%-- 
+    Document   : JspOne
+    Created on : 23/05/2015, 1:08:08 PM
+    Author     : Sherwin, Heemesh, Jas
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="MenuStyle.css">
+    </head>
+    <body>
+        <center><h1>Empirical investigation of refactoring effect on software quality</h1></center>
+        
+        
+        <center><h4>Abstract: </h4></center>
+        <center><h7>Developers and designers always strive for quality software. Quality software tends to be robust, 
+                reliable and easy to maintain, and thus reduces the cost of software development and maintenance. 
+                Several methods have been applied to improve software quality. Refactoring is one of those methods. 
+                The goal of this paper is to validate/invalidate the claims that refactoring improves software quality. 
+                We focused this study on different external quality attributes, which are adaptability, maintainability, 
+                understandability, reusability, and testability. We found that refactoring does not necessarily improve these 
+                quality attributes.
+        </h7></center><br />
+        
+        <center>
+            <forum>
+                <h7><b>Date Published: </b>2009</h7><br /><br />
+                
+                <h7><b>Author: </b>Mohammad Alshayeb</h7><br /><br />
+                
+                <h7><b>Journal: </b>Information and Software Technology</h7><br /><br />
+                     
+                <h7><b>Category: </b>Refactoring</h7><br /><br />
+                
+            </forum>
+            
+            <form action="/SERLER/Search.jsp">
+            <input type="submit" value="Go Back">
+    </form>
+            
+        </center>
+        
+        <br /><br />  
+    </body>
+</html>
